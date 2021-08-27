@@ -15,10 +15,8 @@
 	<description>DevOps Demo Project</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.example.com.devops</start-class>
 	</properties>
-<properties>
-    <start-class>com.example.com.devops</start-class>
-</properties>		
 	<distributionManagement>
 	  <repository>
 	    <id>release</id>
