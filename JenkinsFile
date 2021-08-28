@@ -34,12 +34,12 @@ node {
        VERSION = readMavenPom().getVersion()
        bat '''
        	    SET VERSION='''+VERSION+'''
-            SET VERSION_TAG=%VERSION_TAG%:-SNAPSHOT=%
+            SET VERSION_TAG=%VERSION:-SNAPSHOT=%
             if NOT EXIST ".\\target\\devops-%VERSION_TAG%.war" (
               SET "VERSION_TAG=%VERSION%"
             )
        
-       curl -u jenkins:jenkins -T .\\target\\%VERSION%.war 'http://localhost:8080/manager/text/deploy?path=/devops&update=true'
+       curl -u jenkins:jenkins -T .\\target\\%VERSION_TAG%.war 'http://localhost:8080/manager/text/deploy?path=/devops&update=true'
        '''
    }
    stage("Smoke Test"){
