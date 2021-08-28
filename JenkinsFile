@@ -30,13 +30,6 @@ node {
       }
    }
    stage('Deploy') {
-       bat (SET "VERSION_TAG=%POM_VERSION%")
-       bat (SET VERSION_TAG=%VERSION_TAG:-SNAPSHOT=%)
-       
-       bat (if NOT EXIST ".\target\%JOB_NAME%-%VERSION_TAG%.war" (
-          SET "VERSION_TAG=%POM_VERSION%"
-       ))
-
        bat 'curl -u jenkins:jenkins -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
    }
    stage("Smoke Test"){
