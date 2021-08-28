@@ -33,7 +33,7 @@ node {
    stage('Deploy') {
        VERSION = readMavenPom().getVersion()
        bat '''
-            SET VERSION_TAG=%VERSION:-SNAPSHOT=%
+            SET VERSION_TAG='''+VERSION+''':-SNAPSHOT=%
             if NOT EXIST ".\\target\\devops-%VERSION_TAG%.war" (
               SET "VERSION_TAG=%VERSION%"
             )
