@@ -39,7 +39,7 @@ node {
               SET "VERSION_TAG=%VERSION%"
             )
        
-       curl -u jenkins:jenkins -T .\\target\\%VERSION_TAG%.war 'http://localhost:8080/manager/text/deploy?path=/devops&update=true'
+       curl -u jenkins:jenkins -T .\\target\\devops-%VERSION_TAG%.war 'http://localhost:8080/manager/text/deploy?path=/devops&update=true'
        '''
    }
    stage("Smoke Test"){
